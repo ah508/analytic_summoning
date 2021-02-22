@@ -1,3 +1,7 @@
+Please Note: the wiki has moved, and I am not updating this project. It may no longer
+work as intended. The math is all still sound though, if you want to repurpose the 
+method.
+
 This is a program designed to find the expected number of pulls necessary to acquire a
 given set of adventurers on a given banner in Dragalia Lost. The method should be
 generalizable to any gacha with a pity system, though certain complex elements such as
