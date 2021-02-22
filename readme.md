@@ -2,27 +2,23 @@ Please Note: the wiki has moved, and I am not updating this project. It may no l
 work as intended. The math is all still sound though, if you want to repurpose the 
 method.
 
+Please also note: This was all written prior to the introduction of sparking.
+As of version 2.0, the results of this program are no longer accurate.
+
 This is a program designed to find the expected number of pulls necessary to acquire a
 given set of adventurers on a given banner in Dragalia Lost. The method should be
 generalizable to any gacha with a pity system, though certain complex elements such as
 orb picking in FEH may make the implementation more difficult.
 
------------------------------------------------------------------------------------------
-Dependencies
------------------------------------------------------------------------------------------
+## Dependencies
 To run this program, you'll need a few other things installed:
 - Python 3.6+
 - numpy
-- multiset
-    (see: https://pypi.org/project/multiset/)
-- bs4 (technically optional, but you'd need to edit some code)
-    (see: https://pypi.org/project/beautifulsoup4/)
-- pillow (optional)
-    (see: https://pypi.org/project/Pillow/)
+- [multiset](https://pypi.org/project/multiset/)
+- [bs4](https://pypi.org/project/beautifulsoup4/) (technically optional, but you'd need to edit some code)
+- [pillow](https://pypi.org/project/Pillow/) (optional)
     
------------------------------------------------------------------------------------------
-Features
------------------------------------------------------------------------------------------
+## Features
 This program allows you to:
 - Scrape the wiki to update pools
 - Create and store your own banners
@@ -32,17 +28,13 @@ This program allows you to:
 - Find the number of pulls needed to have a specified probability of having acheived a
   certain result
 
------------------------------------------------------------------------------------------
-Usage
------------------------------------------------------------------------------------------
-The program is used quite simply by running numeric_summoning.py with the appropriate
+## Usage
+You operate the program by running **numeric_summoning.py** with the appropriate
 arguments, and then inputting the requested information.
 For a list of arguments and some brief descriptions of what they do, use
     python numeric_summoning.py -h
 
------------------------------------------------------------------------------------------
-Method
------------------------------------------------------------------------------------------
+## Method
 For the purposes of this program, the problem is formulated as a markov chain.
 Ordinarily, the state space for a gacha would be prohibitively complex, but we can easily
 trim it down to a manageable size by considering only the units that the user wants to
@@ -58,9 +50,7 @@ more useful.) Once the problem is formulated in this way, we can find most of th
 we need by the usual methods - subtracting the submatrix of transient states from the
 identity and inverting to find hitting time, and exponentiating to simulate pulls.
 
------------------------------------------------------------------------------------------
-Disclaimers
------------------------------------------------------------------------------------------
+## Disclaimers
 1. The probabilities used for these computations are not exact. What I have implemented
    is my best guess at how rates are computed - the results are very close to, but not
    identical to, the probabilities listed in game, and results should be veiwed in the
@@ -77,3 +67,4 @@ Disclaimers
 4. I'm sure there's some other stuff I ought mention, but it's slipping my mind at the
    moment. Uh, in short, I cannot guarantee the accuracy of the results of this program,
    and I'm not responsible for the conclusions you draw from them.
+  
